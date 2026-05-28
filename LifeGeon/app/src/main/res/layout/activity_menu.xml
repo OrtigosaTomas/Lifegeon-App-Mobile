@@ -4,23 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#593128"
+    android:background="#562828"
     tools:context=".Menu">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/contenedorInfo"
         android:layout_width="0dp"
         android:layout_height="135dp"
-        android:background="#653D2D"
+        android:background="#6E372E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contenedorDados"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fotoPj"
+            app:layout_constraintTop_toBottomOf="@+id/contenedorMonedas">
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/dados"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dadosNumb"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/dice" />
+
+            <TextView
+                android:id="@+id/dadosNumb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contenedorMonedas"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/fotoPj"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/monedasNumb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/monedas"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/monedasNumb"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/coin" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/fotoPj"
             android:layout_width="135dp"
             android:layout_height="135dp"
-            android:background="#714933"
+            android:background="#562828"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -28,33 +94,95 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/monedasNumb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/fotoPj"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/dadosNumb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="60dp"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/fotoPj"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/botonSeleccion"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/redondo"
+                android:backgroundTint="@color/brown2"
+                android:contentDescription="@string/btnSeleccion"
+                android:onClick="IntentSeleccion"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/botonSeguimiento">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/redondo"
+                    android:backgroundTint="@color/brown4"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/star" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/botonSeguimiento"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/redondo"
+                android:backgroundTint="@color/brown2"
+                android:contentDescription="@string/btnSeguimiento"
+                android:onClick="IntentSeguimiento"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/redondo"
+                    android:backgroundTint="@color/brown4"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/s1" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/contenedorTipos"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contenedorInfo">
@@ -63,6 +191,7 @@
             android:id="@+id/tipoGrupoMenu"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="#452023"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,10 +206,14 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/redondo"
-                android:backgroundTint="#6442A1"
+                android:background="#864635"
                 android:button="@color/black"
-                android:contentDescription="@string/tipo1" />
+                android:contentDescription="@string/tipo1"
+                android:text="@string/tipo1"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <RadioButton
                 android:id="@+id/tipo2"
@@ -90,9 +223,13 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/redondo"
-                android:backgroundTint="#6442A1"
+                android:background="#864635"
                 android:button="@color/black"
+                android:text="@string/tipo2"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 tools:contentDescription="@string/tipo2" />
 
             <RadioButton
@@ -103,10 +240,14 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/redondo"
-                android:backgroundTint="#6442A1"
+                android:background="#864635"
                 android:button="@color/black"
-                android:contentDescription="@string/tipo3" />
+                android:contentDescription="@string/tipo3"
+                android:text="@string/tipo3"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <RadioButton
                 android:id="@+id/tipo4"
@@ -117,10 +258,15 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/redondo"
-                android:backgroundTint="#6442A1"
+                android:background="#864635"
                 android:button="@color/black"
-                android:contentDescription="@string/tipo4" />
+                android:contentDescription="@string/tipo4"
+                android:text="@string/tipo4"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
         </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -152,10 +298,12 @@
                 android:id="@+id/tareasScroll"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:baselineAligned="false"
                 android:orientation="horizontal">
 
                 <ScrollView
-                    android:layout_width="380dp"
+                    android:id="@+id/pagina1"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginBottom="5dp"
@@ -169,7 +317,8 @@
                 </ScrollView>
 
                 <ScrollView
-                    android:layout_width="380dp"
+                    android:id="@+id/pagina2"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginBottom="5dp"
@@ -185,7 +334,8 @@
                 </ScrollView>
 
                 <ScrollView
-                    android:layout_width="380dp"
+                    android:id="@+id/pagina3"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginBottom="5dp"
@@ -199,7 +349,8 @@
                 </ScrollView>
 
                 <ScrollView
-                    android:layout_width="380dp"
+                    android:id="@+id/pagina4"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="5dp"
@@ -222,17 +373,18 @@
         android:id="@+id/contenedorNav"
         android:layout_width="0dp"
         android:layout_height="135dp"
-        android:background="#653D2D"
+        android:background="#6E372E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/botonAventura"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#593128"
+            android:id="@+id/botonDiario"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/circulo"
+            android:backgroundTint="@color/brown2"
             android:contentDescription="@string/aventura"
             android:onClick="IntentAventura"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -240,13 +392,35 @@
             app:layout_constraintStart_toEndOf="@+id/botonCrearTarea"
             app:layout_constraintTop_toTopOf="parent">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/circulo"
+                android:backgroundTint="@color/brown4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/quest" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/botonCrearTarea"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#593128"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/circulo"
+            android:backgroundTint="@color/brown2"
             android:contentDescription="@string/btnTarea"
             android:onClick="IntentCrearTarea"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -254,13 +428,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/circulo"
+                android:backgroundTint="@color/brown4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/plus" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/botonTienda"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#593128"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/circulo"
+            android:backgroundTint="@color/brown2"
             android:contentDescription="@string/tienda"
             android:onClick="IntentTienda"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -268,6 +464,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/circulo"
+                android:backgroundTint="@color/brown4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/shop" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

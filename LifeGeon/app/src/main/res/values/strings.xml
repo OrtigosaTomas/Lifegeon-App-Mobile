@@ -1,24 +1,40 @@
 <resources>
     <string name="app_name">LifeGeon</string>
     <string name="aventura">Jugar</string>
+
     <string name="btnTarea">Crear Tarea</string>
     <string name="btnCrearTarea">Boton Crear Tarea</string>
     <string name="btnEditarTarea">Editar Tarea</string>
+    <string name="btnSeguimiento">Seguimiento</string>
+    <string name="btnSeleccion">Seleccion</string>
+
     <string name="tienda">Tienda</string>
+    <string name="monedas">Monedas</string>
+    <string name="dados">Dados</string>
     <string name="vida">Vida</string>
     <string name="mana">Mana</string>
+
     <string name="titulo">Título</string>
     <string name="descripcion">Descripción</string>
+    <string name="fecha">Seleccionar Fecha</string>
+
+    <string name="seleccionDificultad">Elegir Dificultad:</string>
     <string name="facil">Dificultad facil</string>
     <string name="media">Dificultad media</string>
     <string name="dificil">Dificultad dificil</string>
     <string name="muyDificil">Dificultad Muy dificil</string>
-    <string name="fecha">Seleccionar Fecha</string>
-    <string name="tipo1">Tipo de Tarea: To-Do</string>
-    <string name="tipo2">Tipo de Tarea: Diaria</string>
-    <string name="tipo3">Tipo de Tarea: Habito</string>
-    <string name="tipo4">Tipo de Tarea: Proyecto</string>
-    <string name="cont">Lista de Tareas creadas</string>
 
+    <string name="tipo">Tipo de Tarea:</string>
+    <string name="tipo1">Tareas</string>
+    <string name="tipo2">Habitos</string>
+    <string name="tipo3">Diarias</string>
+    <string name="tipo4">Proyectos</string>
+
+    <string name="cont">Lista de Tareas creadas</string>
+    <string name="comprar">Comprar</string>
+    <string name="objetoTienda">Imagen de objeto a comprar</string>
+    <string name="descripcionTienda">Seleccione un objeto y aquí se mostrará su descipción</string>
+
+    <string name="volver">Volver atras</string>
 
 </resources>

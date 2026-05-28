@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#593128"
+    android:background="#562828"
     tools:context=".Aventura">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:background="#653D2D"
+        android:background="#874734"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -21,7 +21,8 @@
             android:layout_width="190dp"
             android:layout_height="135dp"
             android:layout_margin="10dp"
-            android:background="#593128"
+            android:background="@drawable/redondo"
+            android:backgroundTint="#562828"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
@@ -31,7 +32,8 @@
             android:layout_width="190dp"
             android:layout_height="135dp"
             android:layout_margin="10dp"
-            android:background="#593128"
+            android:background="@drawable/redondo"
+            android:backgroundTint="#562828"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -41,7 +43,8 @@
             android:layout_width="190dp"
             android:layout_height="135dp"
             android:layout_margin="10dp"
-            android:background="#593128"
+            android:background="@drawable/redondo"
+            android:backgroundTint="#562828"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -51,7 +54,8 @@
             android:layout_width="190dp"
             android:layout_height="135dp"
             android:layout_margin="10dp"
-            android:background="#593128"
+            android:background="@drawable/redondo"
+            android:backgroundTint="#562828"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -61,7 +65,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="409dp"
         android:layout_height="100dp"
-        android:background="#653D2D"
+        android:background="#6E372E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

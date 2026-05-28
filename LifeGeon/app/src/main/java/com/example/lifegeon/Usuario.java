@@ -46,7 +46,6 @@ public class Usuario {
         }
 
         db.update("usuarios",valores,"id=1",null);
-        db.close();
     }
 
     public void consultarUsuario(SqlHelper S){
@@ -61,8 +60,24 @@ public class Usuario {
         }
 
         C.close();
-        db.close();
 
+    }
+
+    public void quitarRecompensa (int cantidad, String tipo, SqlHelper S){
+        SQLiteDatabase db = S.getWritableDatabase();
+
+        ContentValues valores = new ContentValues();
+        if (tipo.equalsIgnoreCase("monedas")){
+            monedas -= cantidad;
+            valores.put("monedas",monedas);
+        } else if (tipo.equalsIgnoreCase("dados")){
+            dados -= cantidad;
+            valores.put("dados",dados);
+        } else {
+            Log.e("error","Error al elegir tipo de recompensa");
+        }
+
+        db.update("usuarios",valores,"id=1",null);
     }
 
 }

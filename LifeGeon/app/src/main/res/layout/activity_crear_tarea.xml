@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#593128"
+    android:background="#562828"
     tools:context=".CrearTarea">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
         android:layout_width="0dp"
         android:layout_height="250dp"
-        android:background="#653D2D"
+        android:background="#874734"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,6 +24,7 @@
             android:text="@string/btnTarea"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,11 +36,11 @@
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
             android:autofillHints="@string/titulo"
-            android:background="@drawable/redondo"
-            android:backgroundTint="#593128"
+            android:background="#6E372E"
             android:ems="10"
             android:hint='@string/titulo'
             android:inputType="text"
+            android:padding="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#B6B6B6"
             android:textSize="20sp"
@@ -54,13 +55,13 @@
             android:layout_height="100dp"
             android:layout_marginTop="16dp"
             android:autofillHints="@string/descripcion"
-            android:background="@drawable/redondo"
-            android:backgroundTint="#593128"
+            android:background="#6E372E"
             android:ems="10"
             android:hint="@string/descripcion"
             android:inputType="text"
+            android:padding="10dp"
             android:textColor="#FFFFFF"
-            android:textColorHint="#B6B6B6"
+            android:textColorHint="#B5B5B6"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,24 +84,45 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="95dp"
+            android:layout_height="120dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_weight="1"
             android:background="#653D2D">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout13"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/brown4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/tipo"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <RadioGroup
                 android:id="@+id/grupoTipo"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="@drawable/redondo"
-                android:backgroundTint="#38261B"
+                android:backgroundTint="#6E372E"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout13">
 
                 <RadioButton
                     android:id="@+id/radioButton4"
@@ -111,9 +133,14 @@
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/redondo"
-                    android:backgroundTint="#6442A1"
+                    android:backgroundTint="#874734"
                     android:button="@color/black"
-                    android:contentDescription="@string/tipo1" />
+                    android:contentDescription="@string/tipo1"
+                    android:text="@string/tipo1"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <RadioButton
                     android:id="@+id/radioButton5"
@@ -124,8 +151,13 @@
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/redondo"
-                    android:backgroundTint="#6442A1"
+                    android:backgroundTint="#874734"
                     android:button="@color/black"
+                    android:text="@string/tipo2"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:contentDescription="@string/tipo2" />
 
                 <RadioButton
@@ -137,9 +169,14 @@
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/redondo"
-                    android:backgroundTint="#6442A1"
+                    android:backgroundTint="#874734"
                     android:button="@color/black"
-                    android:contentDescription="@string/tipo3" />
+                    android:contentDescription="@string/tipo3"
+                    android:text="@string/tipo3"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <RadioButton
                     android:id="@+id/radioButton7"
@@ -151,30 +188,54 @@
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/redondo"
-                    android:backgroundTint="#6442A1"
+                    android:backgroundTint="#874734"
                     android:button="@color/black"
-                    android:contentDescription="@string/tipo4" />
+                    android:contentDescription="@string/tipo4"
+                    android:text="@string/tipo4"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </RadioGroup>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            tools:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/brown4"
+                app:layout_constraintBottom_toTopOf="@+id/grupoDificultad"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textTipo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/seleccionDificultad"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <RadioGroup
                 android:id="@+id/grupoDificultad"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@drawable/redondo"
-                android:backgroundTint="#38261B"
+                android:layout_height="100dp"
+                android:background="@color/brown3"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <RadioButton
                     android:id="@+id/radioButton13"
@@ -185,10 +246,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/redondo"
-                    android:backgroundTint="#4CAF50"
+                    android:background="@color/brown4"
                     android:button="@color/black"
-                    android:buttonTintMode="add"
                     android:contentDescription="@string/facil"
                     android:foreground="@drawable/facil"
                     android:foregroundGravity="center" />
@@ -201,10 +260,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/redondo"
-                    android:backgroundTint="#FFCC31"
+                    android:background="@color/brown4"
                     android:button="@color/black"
-                    android:buttonTintMode="add"
                     android:contentDescription="@string/media"
                     android:foreground="@drawable/media"
                     android:foregroundGravity="center" />
@@ -217,10 +274,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/redondo"
-                    android:backgroundTint="#FFA622"
+                    android:background="@color/brown4"
                     android:button="@color/black"
-                    android:buttonTintMode="add"
                     android:contentDescription="@string/dificil"
                     android:foreground="@drawable/dificil"
                     android:foregroundGravity="center" />
@@ -233,10 +288,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/redondo"
-                    android:backgroundTint="#FF3B3B"
+                    android:background="@color/brown4"
                     android:button="@color/black"
-                    android:buttonTintMode="add"
                     android:contentDescription="@string/muyDificil"
                     android:foreground="@drawable/muydificil"
                     android:foregroundGravity="center" />
@@ -247,19 +300,19 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/seleccionFecha"
             android:layout_width="match_parent"
-            android:layout_height="95dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:background="#653D2D"
+            android:layout_weight="0"
+            android:background="@color/brown3"
             android:contentDescription="@string/fecha"
-            android:onClick="seleccionarFecha"
-            tools:layout_marginStart="10dp">
+            android:onClick="seleccionarFecha">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout7"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:background="#714933"
+                android:background="@color/brown4"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -271,11 +324,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/fecha"
                     android:textColor="#FFFFFF"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:textSize="20sp" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView

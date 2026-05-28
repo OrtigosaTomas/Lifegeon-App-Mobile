@@ -3,6 +3,7 @@ package com.example.lifegeon;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
@@ -12,13 +13,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class Menu extends AppCompatActivity {
@@ -31,6 +35,8 @@ public class Menu extends AppCompatActivity {
     private HorizontalScrollView tipoScroll;
     private SqlHelper helperSql;
     private Usuario User = new Usuario(0,0);
+    private ScrollView pagina1,pagina2,pagina3,pagina4;
+    private DisplayMetrics displayMetrics = new DisplayMetrics();
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -42,10 +48,36 @@ public class Menu extends AppCompatActivity {
 
         monedas = findViewById(R.id.monedasNumb);
         dados = findViewById(R.id.dadosNumb);
+
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int screenWidth = displayMetrics.widthPixels;
+
+        pagina1 = findViewById(R.id.pagina1);
+        pagina2 = findViewById(R.id.pagina2);
+        pagina3 = findViewById(R.id.pagina3);
+        pagina4 = findViewById(R.id.pagina4);
+
+        ViewGroup.LayoutParams params1 = pagina1.getLayoutParams();
+        params1.width = screenWidth - 25;
+        pagina1.setLayoutParams(params1);
+
+        ViewGroup.LayoutParams params2 = pagina2.getLayoutParams();
+        params2.width = screenWidth - 25;
+        pagina2.setLayoutParams(params2);
+
+        ViewGroup.LayoutParams params3 = pagina3.getLayoutParams();
+        params3.width = screenWidth - 25;
+        pagina3.setLayoutParams(params3);
+
+        ViewGroup.LayoutParams params4 = pagina4.getLayoutParams();
+        params4.width = screenWidth - 25;
+        pagina4.setLayoutParams(params4);
+
         contenedorTarea1 = findViewById(R.id.contenedorTareas1);
         contenedorTarea2 = findViewById(R.id.contenedorTareas2);
         contenedorTarea3 = findViewById(R.id.contenedorTareas3);
         contenedorTarea4 = findViewById(R.id.contenedorTareas4);
+
         tipoGrupo = findViewById(R.id.tipoGrupoMenu);
         tipoScroll = findViewById(R.id.tipoScroll);
         seleccionarTipo();
@@ -74,7 +106,6 @@ public class Menu extends AppCompatActivity {
         User.consultarUsuario(helperSql);
         monedas.setText(String.valueOf(User.getMonedas()));
         dados.setText(String.valueOf(User.getDados()));
-
     }
 
     @Override
@@ -93,7 +124,7 @@ public class Menu extends AppCompatActivity {
     public void crearTarjeta(Tarea T) {
 
         CardView cardView = new CardView(Menu.this);
-        cardView.setCardBackgroundColor(Color.parseColor("#653D2D"));
+        cardView.setCardBackgroundColor(Color.parseColor("#6E372E"));
         cardView.setMinimumHeight(300);
         cardView.setOnClickListener(view -> {
             IntentEditarTarea(T);
@@ -113,7 +144,7 @@ public class Menu extends AppCompatActivity {
         RelativeLayout.LayoutParams imageButtonParams2 = new RelativeLayout.LayoutParams(0, RelativeLayout.LayoutParams.MATCH_PARENT);
 
         if (T.getTipo() == 1){
-            imageButton.setBackgroundColor(Color.parseColor("#714933"));
+            imageButton.setBackgroundColor(Color.parseColor("#874734"));
             imageButton.setOnClickListener(view -> {
                 contenedorTarea1.removeView(cardView);
                 T.eliminarTarea(helperSql,T.getId());
@@ -128,9 +159,14 @@ public class Menu extends AppCompatActivity {
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
             imageButtonParams.setMargins(0, 0, 0, 0);
+            imageButton.setPadding(30, 30, 30, 30);
+            imageButton.setScaleType(ImageButton.ScaleType.FIT_CENTER);
+            imageButton.setImageResource(R.drawable.circulo);
+            imageButton.setColorFilter(Color.parseColor("#6E372E"));
+            imageButton.setForeground(AppCompatResources.getDrawable(this,R.drawable.tick));
 
         } else if (T.getTipo() == 2){
-            imageButton.setBackgroundColor(Color.parseColor("#714933"));
+            imageButton.setBackgroundColor(Color.parseColor("#874734"));
             imageButton.setOnClickListener(view -> {
                 User.consultarUsuario(helperSql);
                 User.obtenerRecompensa(10,"monedas",helperSql);
@@ -140,11 +176,11 @@ public class Menu extends AppCompatActivity {
             });
             imageButton2.setOnClickListener(view -> {
                 User.consultarUsuario(helperSql);
-                User.obtenerRecompensa(-1,"monedas",helperSql); //negativo
+                User.obtenerRecompensa(-10,"monedas",helperSql); //negativo
                 monedas.setText(String.valueOf(User.getMonedas()));
                 dados.setText(String.valueOf(User.getDados()));
             });
-            imageButton2.setBackgroundColor(Color.parseColor("#714933"));
+            imageButton2.setBackgroundColor(Color.parseColor("#874734"));
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
             imageButtonParams.width = 150;
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
@@ -157,7 +193,7 @@ public class Menu extends AppCompatActivity {
             imageButtonParams2.setMargins(0, 0, 0, 0);
 
         } else if (T.getTipo() == 3) {
-            imageButton.setBackgroundColor(Color.parseColor("#714933"));
+            imageButton.setBackgroundColor(Color.parseColor("#874734"));
             imageButton.setOnClickListener(view -> {
                 contenedorTarea3.removeView(cardView);
                 T.eliminarTarea(helperSql,T.getId());
@@ -172,9 +208,14 @@ public class Menu extends AppCompatActivity {
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
             imageButtonParams.setMargins(0, 0, 0, 0);
+            imageButton.setPadding(30, 30, 30, 30);
+            imageButton.setScaleType(ImageButton.ScaleType.FIT_CENTER);
+            imageButton.setImageResource(R.drawable.circulo);
+            imageButton.setColorFilter(Color.parseColor("#6E372E"));
+            imageButton.setForeground(AppCompatResources.getDrawable(this,R.drawable.tick));
 
         } else if (T.getTipo() == 4) {
-            imageButton.setBackgroundColor(Color.parseColor("#714933"));
+            imageButton.setBackgroundColor(Color.parseColor("#874734"));
             imageButton.setOnClickListener(view -> {
                 contenedorTarea4.removeView(cardView);
                 T.eliminarTarea(helperSql,T.getId());
@@ -189,8 +230,11 @@ public class Menu extends AppCompatActivity {
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
             imageButtonParams.setMargins(0, 0, 0, 0);
-        } else {
-            Log.e("error","Error al dar Recompensa");
+            imageButton.setPadding(30, 30, 30, 30);
+            imageButton.setScaleType(ImageButton.ScaleType.FIT_CENTER);
+            imageButton.setImageResource(R.drawable.circulo);
+            imageButton.setColorFilter(Color.parseColor("#6E372E"));
+            imageButton.setForeground(AppCompatResources.getDrawable(this,R.drawable.tick));
         }
 
         TextView tituloTarea = new TextView(Menu.this);
@@ -209,9 +253,11 @@ public class Menu extends AppCompatActivity {
         tituloTarea.setText(T.getTitulo());
         descripcionTarea.setText(T.getDescripcion());
         fechaTarea.setText(T.getFecha());
+
         tituloTarea.setTextColor(Color.parseColor("#FFFFFF"));
         descripcionTarea.setTextColor(Color.parseColor("#FFFFFF"));
         fechaTarea.setTextColor(Color.parseColor("#FFFFFF"));
+
         tituloTarea.setTextSize(20);
         descripcionTarea.setTextSize(20);
         fechaTarea.setTextSize(20);
@@ -233,32 +279,34 @@ public class Menu extends AppCompatActivity {
         relativeLayout.addView(imageButton, imageButtonParams);
         cardView.addView(relativeLayout);
 
-        if (T.getTipo() == 1){
-            contenedorTarea1.addView(cardView);
-        } else if (T.getTipo() == 2){
-            contenedorTarea2.addView(cardView);
-        } else if (T.getTipo() == 3) {
-            contenedorTarea3.addView(cardView);
-        } else if (T.getTipo() == 4) {
-            contenedorTarea4.addView(cardView);
-        } else {
-            Log.e("Error", "La tarea no tiene tipo: "+ T.getTipo());
+        LinearLayout[] contenedores = new LinearLayout[]{
+                contenedorTarea1,
+                contenedorTarea2,
+                contenedorTarea3,
+                contenedorTarea4
+        };
+
+        int tipo = T.getTipo();
+
+        if (tipo >= 1 && tipo <= contenedores.length) {
+            contenedores[tipo - 1].addView(cardView);
         }
 
     }
 
     public void seleccionarTipo(){
         tipoGrupo.setOnCheckedChangeListener((group, checkedId) -> {
-            float densidad = getResources().getDisplayMetrics().density;
+            getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            int screenWidth = displayMetrics.widthPixels;
             if (checkedId==R.id.tipo1){
                 tipoTarea = 1;
                 tipoScroll.smoothScrollTo(0,0);
             } else if (checkedId==R.id.tipo2) {
                 tipoTarea = 2;
-                tipoScroll.smoothScrollTo((int) (390 * densidad),0);
+                tipoScroll.smoothScrollTo((int) screenWidth,0);
             } else if (checkedId==R.id.tipo3) {
                 tipoTarea = 3;
-                tipoScroll.smoothScrollTo((int) (780 * densidad),0);
+                tipoScroll.smoothScrollTo((int) (screenWidth * 2),0);
             } else if (checkedId==R.id.tipo4) {
                 tipoTarea = 4;
                 tipoScroll.smoothScrollTo(4000,0);
@@ -305,7 +353,15 @@ public class Menu extends AppCompatActivity {
         Intent intent = new Intent(Menu.this, Aventura.class);
         startActivity(intent);
     }
+    public void IntentSeguimiento(View view) {
+        Intent intent = new Intent(Menu.this, Seguimiento.class);
+        startActivity(intent);
+    }
 
+    public void IntentSeleccion(View view) {
+        Intent intent = new Intent(Menu.this, Seleccion.class);
+        startActivity(intent);
+    }
     public void IntentEditarTarea(Tarea T) {
         Intent intent = new Intent(Menu.this, EditarTarea.class);
         intent.putExtra("id", T.getId());

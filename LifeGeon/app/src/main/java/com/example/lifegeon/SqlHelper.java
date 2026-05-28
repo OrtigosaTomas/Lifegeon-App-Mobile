@@ -1,6 +1,5 @@
 package com.example.lifegeon;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -17,7 +16,7 @@ public class SqlHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE objetos(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, descripcion TEXT, precio INTEGER DEFAULT 0)");
         db.execSQL("CREATE TABLE usuarios(id INTEGER PRIMARY KEY AUTOINCREMENT, monedas INTEGER DEFAULT 0, dados INTEGER DEFAULT 0)");
-        db.execSQL("CREATE TABLE seguimiento(id INTEGER PRIMARY KEY AUTOINCREMENT, tareasCompletadas INTEGER DEFAULT 0, enemigosDerrotados INTEGER DEFAULT 0, aventurasCompletadas INTEGER DEFAULT 0)");
+        db.execSQL("CREATE TABLE seguimiento(id INTEGER PRIMARY KEY AUTOINCREMENT, tareasCompletadas INTEGER DEFAULT 0, enemigosDerrotados INTEGER DEFAULT 0, aventurasCompletadas INTEGER DEFAULT 0, fecha DATETIME)");
         db.execSQL("CREATE TABLE personaje(id INTEGER PRIMARY KEY AUTOINCREMENT, vida INTEGER DEFAULT 0, mana INTEGER DEFAULT 0, personaje INTEGER DEFAULT 0, mascota INTEGER DEFAULT 0)");
         db.execSQL("CREATE TABLE inventario(id INTEGER PRIMARY KEY AUTOINCREMENT, cantidadObjeto INTEGER DEFAULT 0, objeto_id INTEGER, FOREIGN KEY (objeto_id) REFERENCES objetos(id))");
         db.execSQL("CREATE TABLE tareas(id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT ,descripcion TEXT, tipo INTEGER, fecha TEXT, dificultad INTEGER)");

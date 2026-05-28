@@ -72,7 +72,6 @@ public class Tarea {
     public void eliminarTarea(SqlHelper S, Integer id){
         SQLiteDatabase db = S.getWritableDatabase();
         db.delete("tareas",id+ " = id",null);
-        db.close();
     }
 
     public void guardarTarea(SqlHelper S){
@@ -87,7 +86,6 @@ public class Tarea {
         valores.put("dificultad",dificultad);
         long idNuevo = db.insert("tareas",null,valores);
         setId((int) idNuevo);
-        db.close();
     }
 
     public void actualizarTarea(SqlHelper S){
@@ -97,11 +95,9 @@ public class Tarea {
 
         valores.put("titulo",titulo);
         valores.put("descripcion",descripcion);
-        valores.put("tipo",tipo);
         valores.put("fecha",fecha);
         valores.put("dificultad",dificultad);
         db.update("tareas",valores,"id="+id,null);
-        db.close();
     }
 
     public void consultarTarea(SqlHelper S, Integer i){
@@ -118,7 +114,6 @@ public class Tarea {
         }
 
         C.close();
-        db.close();
     }
 
 

@@ -22,7 +22,7 @@ public class EditarTarea extends AppCompatActivity {
     private RadioGroup tipoGrupo;
     private RadioGroup dificultadGrupo;
     private Integer diaActual, mesActual, anioActual;
-    private Integer dificultad, tipo, id;
+    private Integer dificultad, id;
     private String fecha;
     private Calendar calendar = Calendar.getInstance();
     private Tarea T = new Tarea("","",1,"",1);
@@ -37,10 +37,8 @@ public class EditarTarea extends AppCompatActivity {
         titulo = findViewById(R.id.tituloTarea);
         desc = findViewById(R.id.descripcionTarea);
         textoFecha = findViewById(R.id.textoFecha);
-        tipoGrupo = findViewById(R.id.grupoTipo);
         dificultadGrupo = findViewById(R.id.grupoDificultad);
 
-        seleccionarTipo();
         seleccionarDificultad();
 
         anioActual = calendar.get(Calendar.YEAR);
@@ -51,6 +49,10 @@ public class EditarTarea extends AppCompatActivity {
         id = intent.getIntExtra("id",-1);
 
         T.consultarTarea(helperSql, id);
+        titulo.setText(T.getTitulo());
+        desc.setText(T.getDescripcion());
+        textoFecha.setText(T.getFecha());
+        dificultad = T.getDificultad();
 
     }
 
@@ -68,20 +70,6 @@ public class EditarTarea extends AppCompatActivity {
         });
     }
 
-    public void seleccionarTipo(){
-        tipoGrupo.setOnCheckedChangeListener((group, checkedId) -> {
-            if (checkedId==R.id.radioButton4){
-                tipo = 1;
-            } else if (checkedId==R.id.radioButton5) {
-                tipo = 2;
-            } else if (checkedId==R.id.radioButton6) {
-                tipo = 3;
-            } else if (checkedId==R.id.radioButton7) {
-                tipo = 4;
-            }
-        });
-    }
-
     public void seleccionarFecha(View view){
         DatePickerDialog datePickerDialog = new DatePickerDialog(EditarTarea.this, (DatePickerDialog.OnDateSetListener) (view1, year, month, dayOfMonth) -> {
             fecha = dayOfMonth + "/" + (month+1) + "/" + year;
@@ -90,7 +78,7 @@ public class EditarTarea extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    private void editarTarea(){
+    public void editarTarea(View view){
         if (desc.getText().toString().isEmpty()){
             desc.setText(" ");
         }
@@ -100,17 +88,10 @@ public class EditarTarea extends AppCompatActivity {
         if (titulo.getText().toString().isEmpty()){
             Toast.makeText(this, "Debe rellenar el campo de Titulo",Toast.LENGTH_SHORT).show();
         } else {
-            if (tipo == null){
-                tipo = 1;
-            }
-            if (dificultad == null){
-                dificultad = 1;
-            }
 
             T.setTitulo(titulo.getText().toString());
             T.setDescripcion(desc.getText().toString());
             T.setFecha(textoFecha.getText().toString());
-            T.setTipo(tipo);
             T.setDificultad(dificultad);
             T.actualizarTarea(helperSql);
 
