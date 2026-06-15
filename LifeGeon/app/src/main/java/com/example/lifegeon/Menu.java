@@ -35,7 +35,6 @@ public class Menu extends AppCompatActivity {
     private HorizontalScrollView tipoScroll;
     private SqlHelper helperSql;
     private Usuario User = new Usuario(0,0);
-    private ScrollView pagina1,pagina2,pagina3,pagina4;
     private DisplayMetrics displayMetrics = new DisplayMetrics();
 
     @SuppressLint("ClickableViewAccessibility")
@@ -44,7 +43,7 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        helperSql =  new SqlHelper(this,"dbLifeGeon",null,1);
+        helperSql = new SqlHelper(this);
 
         monedas = findViewById(R.id.monedasNumb);
         dados = findViewById(R.id.dadosNumb);
@@ -52,10 +51,10 @@ public class Menu extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int screenWidth = displayMetrics.widthPixels;
 
-        pagina1 = findViewById(R.id.pagina1);
-        pagina2 = findViewById(R.id.pagina2);
-        pagina3 = findViewById(R.id.pagina3);
-        pagina4 = findViewById(R.id.pagina4);
+        ScrollView pagina1 = findViewById(R.id.pagina1);
+        ScrollView pagina2 = findViewById(R.id.pagina2);
+        ScrollView pagina3 = findViewById(R.id.pagina3);
+        ScrollView pagina4 = findViewById(R.id.pagina4);
 
         ViewGroup.LayoutParams params1 = pagina1.getLayoutParams();
         params1.width = screenWidth - 25;
@@ -146,13 +145,16 @@ public class Menu extends AppCompatActivity {
         if (T.getTipo() == 1){
             imageButton.setBackgroundColor(Color.parseColor("#874734"));
             imageButton.setOnClickListener(view -> {
-                contenedorTarea1.removeView(cardView);
-                T.eliminarTarea(helperSql,T.getId());
+                if (contenedorTarea1 != null) {
+                    contenedorTarea1.removeView(cardView);
+                }
+                T.eliminarTarea(helperSql, T.getId());
+                Seguimiento.registrarTareaCompletada(helperSql);
                 User.consultarUsuario(helperSql);
-                User.obtenerRecompensa(10,"monedas",helperSql);
-                User.obtenerRecompensa(1,"dados",helperSql);
-                monedas.setText(String.valueOf(User.getMonedas()));
-                dados.setText(String.valueOf(User.getDados()));
+                User.obtenerRecompensa(10, "monedas", helperSql);
+                User.obtenerRecompensa(1, "dados", helperSql);
+                if (monedas != null) monedas.setText(String.valueOf(User.getMonedas()));
+                if (dados != null) dados.setText(String.valueOf(User.getDados()));
             });
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
             imageButtonParams.width = 300;
@@ -168,17 +170,18 @@ public class Menu extends AppCompatActivity {
         } else if (T.getTipo() == 2){
             imageButton.setBackgroundColor(Color.parseColor("#874734"));
             imageButton.setOnClickListener(view -> {
+                Seguimiento.registrarTareaCompletada(helperSql);
                 User.consultarUsuario(helperSql);
-                User.obtenerRecompensa(10,"monedas",helperSql);
-                User.obtenerRecompensa(1,"dados",helperSql);
-                monedas.setText(String.valueOf(User.getMonedas()));
-                dados.setText(String.valueOf(User.getDados()));
+                User.obtenerRecompensa(10, "monedas", helperSql);
+                User.obtenerRecompensa(1, "dados", helperSql);
+                if (monedas != null) monedas.setText(String.valueOf(User.getMonedas()));
+                if (dados != null) dados.setText(String.valueOf(User.getDados()));
             });
             imageButton2.setOnClickListener(view -> {
                 User.consultarUsuario(helperSql);
-                User.obtenerRecompensa(-10,"monedas",helperSql); //negativo
-                monedas.setText(String.valueOf(User.getMonedas()));
-                dados.setText(String.valueOf(User.getDados()));
+                User.obtenerRecompensa(-10, "monedas", helperSql); //negativo
+                if (monedas != null) monedas.setText(String.valueOf(User.getMonedas()));
+                if (dados != null) dados.setText(String.valueOf(User.getDados()));
             });
             imageButton2.setBackgroundColor(Color.parseColor("#874734"));
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
@@ -186,22 +189,27 @@ public class Menu extends AppCompatActivity {
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
             imageButtonParams.setMargins(0, 0, 0, 0);
+            imageButton.setForeground(AppCompatResources.getDrawable(this,R.drawable.up));
             imageButtonParams2.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
             imageButtonParams2.width = 150;
             imageButtonParams2.addRule(RelativeLayout.ALIGN_PARENT_TOP);
             imageButtonParams2.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
             imageButtonParams2.setMargins(0, 0, 0, 0);
+            imageButton2.setForeground(AppCompatResources.getDrawable(this,R.drawable.down));
 
         } else if (T.getTipo() == 3) {
             imageButton.setBackgroundColor(Color.parseColor("#874734"));
             imageButton.setOnClickListener(view -> {
-                contenedorTarea3.removeView(cardView);
-                T.eliminarTarea(helperSql,T.getId());
+                if (contenedorTarea3 != null) {
+                    contenedorTarea3.removeView(cardView);
+                }
+                T.eliminarTarea(helperSql, T.getId());
+                Seguimiento.registrarTareaCompletada(helperSql);
                 User.consultarUsuario(helperSql);
-                User.obtenerRecompensa(10,"monedas",helperSql);
-                User.obtenerRecompensa(1,"dados",helperSql);
-                monedas.setText(String.valueOf(User.getMonedas()));
-                dados.setText(String.valueOf(User.getDados()));
+                User.obtenerRecompensa(10, "monedas", helperSql);
+                User.obtenerRecompensa(1, "dados", helperSql);
+                if (monedas != null) monedas.setText(String.valueOf(User.getMonedas()));
+                if (dados != null) dados.setText(String.valueOf(User.getDados()));
             });
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
             imageButtonParams.width = 300;
@@ -217,13 +225,16 @@ public class Menu extends AppCompatActivity {
         } else if (T.getTipo() == 4) {
             imageButton.setBackgroundColor(Color.parseColor("#874734"));
             imageButton.setOnClickListener(view -> {
-                contenedorTarea4.removeView(cardView);
-                T.eliminarTarea(helperSql,T.getId());
+                if (contenedorTarea4 != null) {
+                    contenedorTarea4.removeView(cardView);
+                }
+                T.eliminarTarea(helperSql, T.getId());
+                Seguimiento.registrarTareaCompletada(helperSql);
                 User.consultarUsuario(helperSql);
-                User.obtenerRecompensa(10,"monedas",helperSql);
-                User.obtenerRecompensa(1,"dados",helperSql);
-                monedas.setText(String.valueOf(User.getMonedas()));
-                dados.setText(String.valueOf(User.getDados()));
+                User.obtenerRecompensa(10, "monedas", helperSql);
+                User.obtenerRecompensa(1, "dados", helperSql);
+                if (monedas != null) monedas.setText(String.valueOf(User.getMonedas()));
+                if (dados != null) dados.setText(String.valueOf(User.getDados()));
             });
             imageButtonParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
             imageButtonParams.width = 300;

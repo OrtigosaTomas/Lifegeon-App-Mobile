@@ -71,7 +71,7 @@ public class Tarea {
 
     public void eliminarTarea(SqlHelper S, Integer id){
         SQLiteDatabase db = S.getWritableDatabase();
-        db.delete("tareas",id+ " = id",null);
+        db.delete("tareas","id = ?",new String[]{String.valueOf(id)});
     }
 
     public void guardarTarea(SqlHelper S){

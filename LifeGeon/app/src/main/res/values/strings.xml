@@ -7,6 +7,9 @@
     <string name="btnEditarTarea">Editar Tarea</string>
     <string name="btnSeguimiento">Seguimiento</string>
     <string name="btnSeleccion">Seleccion</string>
+    <string name="btnDiario">Ver todas tus entradas del diario</string>
+    <string name="btnCrearDiario">Crear una entrada en el diario</string>
+    <string name="btnStats">Estadisticas</string>
 
     <string name="tienda">Tienda</string>
     <string name="monedas">Monedas</string>
@@ -31,10 +34,23 @@
     <string name="tipo4">Proyectos</string>
 
     <string name="cont">Lista de Tareas creadas</string>
+    <string name="contDiario">Lista de entradas del diario creadas</string>
+    <string name="contStats">Lista de estadísticas</string>
+
     <string name="comprar">Comprar</string>
     <string name="objetoTienda">Imagen de objeto a comprar</string>
     <string name="descripcionTienda">Seleccione un objeto y aquí se mostrará su descipción</string>
+    <string name="imgDiario">Icono de diario</string>
+    <string name="tituloDiario">Título de la entrada</string>
+    <string name="descripcionDiario">Selecciona una entrada para leerla…</string>
+    <string name="miDiario">Mi Diario</string>
 
     <string name="volver">Volver atras</string>
+    <string name="cero">0</string>
+    <string name="total">ESTADÍSTICAS TOTALES:</string>
+
+    <string name="aventuras">Aventuras</string>
+    <string name="enemigos">Enemigos</string>
+    <string name="estadisticas">Estadísticas</string>
 
 </resources>

@@ -22,7 +22,7 @@ public class EditarTarea extends AppCompatActivity {
     private RadioGroup tipoGrupo;
     private RadioGroup dificultadGrupo;
     private Integer diaActual, mesActual, anioActual;
-    private Integer dificultad, id;
+    private Integer dificultad;
     private String fecha;
     private Calendar calendar = Calendar.getInstance();
     private Tarea T = new Tarea("","",1,"",1);
@@ -32,7 +32,7 @@ public class EditarTarea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_tarea);
 
-        helperSql =  new SqlHelper(this,"dbLifeGeon",null,1);
+        helperSql = new SqlHelper(this);
 
         titulo = findViewById(R.id.tituloTarea);
         desc = findViewById(R.id.descripcionTarea);
@@ -46,7 +46,7 @@ public class EditarTarea extends AppCompatActivity {
         diaActual = calendar.get(Calendar.DAY_OF_MONTH);
 
         Intent intent = getIntent();
-        id = intent.getIntExtra("id",-1);
+        Integer id = intent.getIntExtra("id", -1);
 
         T.consultarTarea(helperSql, id);
         titulo.setText(T.getTitulo());

@@ -31,7 +31,7 @@ public class CrearTarea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_tarea);
 
-        helperSql =  new SqlHelper(this,"dbLifeGeon",null,1);
+        helperSql = new SqlHelper(this);
 
         titulo = findViewById(R.id.tituloTarea);
         desc = findViewById(R.id.descripcionTarea);

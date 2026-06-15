@@ -30,7 +30,7 @@ public class Tienda extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tienda);
 
-        helperSql =  new SqlHelper(this,"dbLifeGeon",null,1);
+        helperSql = new SqlHelper(this);
 
         imagen = findViewById(R.id.imageView);
         monedasTexto = findViewById(R.id.monedasText);
